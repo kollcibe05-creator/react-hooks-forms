@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
+import DisplayData from "./DisplayData";
 
-function Form() {
-  const [firstName, setFirstName] = useState("John");
-  const [lastName, setLastName] = useState("Henry");
-
+function Form({firstName, lastName, handleFirstName, handleLastName}) {
+  
   return (
+    <div>
     <form>
-      <input type="text" value={firstName} />
-      <input type="text" value={lastName} />
+      <input type="text" onChange={handleFirstName} value={firstName} />
+      <input type="text" onChange={handleLastName}value={lastName} />
       <button type="submit">Submit</button>
     </form>
+    <DisplayData firstName={firstName} lastName={lastName}/>
+    </div>
   );
 }
 
